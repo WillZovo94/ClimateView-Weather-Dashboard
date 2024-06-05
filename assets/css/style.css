@@ -1,0 +1,117 @@
+:root {
+    --bg-color-1: #AEE1FC;
+    --bg-color-2: #60ABFB;
+    --bg-color-3: #5170FD;
+    --bg-color-4: #4636FC;
+}
+
+/* Added two fonts from google fonts */ 
+.lobster-regular {
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.bree-serif-regular {
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/* End of two fonts */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color-1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Bree Serif", serif;
+}
+
+#main-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    background: linear-gradient(var(--bg-color-2), var(--bg-color-3));
+    border-bottom: 3px dotted var(--bg-color-2);
+    width: 100%;
+    height: 85px;
+    font-family: "Lobster", sans-serif;
+}
+
+#main-content {
+    display: flex;
+    flex-direction: row;
+     /* border: 1px solid pink; */
+    width: 95%;
+    justify-content: space-evenly;
+    margin-top: 50px;
+
+}
+
+#left-view {
+    display: flex;
+    width: 300px;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--bg-color-2);
+    box-shadow: 0 0 10px inset var(--bg-color-4);
+}
+
+#left-view h2 {
+    margin: 10px 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+#left-view input {
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+    height: 40px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    padding: 0 10px;
+    outline: none;
+    margin-top: 10px;
+    box-shadow: 0 0 2px inset rgba(0,0,0,0.5);
+    font-family: "Bree Serif", serif;
+}
+
+#left-view button {
+    width: 85%;
+    height: 40px;
+    border: none;
+    margin: 20px 0;
+    background-color: var(--bg-color-3);
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Bree Serif", serif;
+}
+
+#left-view button:hover {
+    opacity: 0.7;
+}
+
+#right-view {
+    display: flex;
+    width: 60%;
+    justify-content: right;
+    background-color: var(--bg-color-2);
+    box-shadow: 0 0 10px inset var(--bg-color-4);
+
+}
+

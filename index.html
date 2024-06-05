@@ -5,34 +5,45 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale-1">
         <link rel="stylesheet" href="./assets/css/style.css">
+        <!-- font input 1 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <!-- font input 2-->
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Lobster&display=swap" rel="stylesheet">
 
     </head>
 
     <body>
-        <header>
+        <header id="main-header">
             <h1>ClimateView Weather Dashboard</h1>
         </header>
 
-        <div id="left-view">
-            <h2>Search for a City:</h2>
-            <input type="text" id="search-input">
-            <button id="search-btn">Search</button>
-            <!-- Previous searches need to show up here -->
-            <!-- column display, add new searches underneath ?-->
-        </div>
-        
-        <div id="right-view">
-            <div id="top-section">
-                <!-- Add information to the box -->
-                <!-- City, date, symbol -->
-                <!-- Temperature -->
-                <!-- Wind -->
-                <!-- Humidity-->
+    
+        <div id="main-content">
+            <div id="left-view">
+                <h2>Find A City</h2>
+                <input type="text" id="search-input" placeholder="Enter a city!">
+                <button id="search-btn">Search</button>
+                <!-- Previous searches need to show up here -->
+                <!-- column display, add new searches underneath ?-->
             </div>
-            <div id="bottom-section">
-                <!-- five day forecast visible -->
+            
+            <div id="right-view">
+                <div id="top-section">
+                    <p></p>
+                    <!-- Add information to the box -->
+                    <!-- City, date, symbol -->
+                    <!-- Temperature -->
+                    <!-- Wind -->
+                    <!-- Humidity-->
+                </div>
+                <div id="bottom-section">
+                    <!-- five day forecast visible -->
+                </div>
             </div>
         </div>
+
 
     </body>
 
