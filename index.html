@@ -3,7 +3,7 @@
     <head>
         <title>Weather Dashboard</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./assets/css/style.css">
         <!-- font input 1 -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
         <!-- font input 2-->
         <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Lobster&display=swap" rel="stylesheet">
-
     </head>
 
     <body>
@@ -19,15 +18,17 @@
             <h1>ClimateView Weather Dashboard</h1>
         </header>
 
-    
         <div id="main-content">
             <div id="left-view">
                 <h2>Find A City</h2>
-                <input type="text" id="search-input" placeholder="Enter a city!">
-                <button id="search-btn">Search</button>
+                <fieldset id="main-fieldset">
+                    <input type="text" id="search-input" placeholder="Enter a city!">
+                    <button id="search-btn">SEARCH</button>
+                </fieldset>
+                <hr>
                 <!-- Previous searches need to show up here -->
                 <!-- column display, add new searches underneath ?-->
-            </div>
+            </div> 
             
             <div id="right-view">
                 <div id="top-section">
@@ -36,7 +37,7 @@
                     <!-- City, date, symbol -->
                     <!-- Temperature -->
                     <!-- Wind -->
-                    <!-- Humidity-->
+                    <!-- Humidity-->                    
                 </div>
                 <div id="bottom-section">
                     <!-- five day forecast visible -->
@@ -44,7 +45,6 @@
             </div>
         </div>
 
-
+        <script src="./assets/js/script.js"></script>
     </body>
-
 </html>
