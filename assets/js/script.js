@@ -46,6 +46,15 @@ function getLocation(location) {
     })
 }
 
+function buttons (data) {
+    getStorage();
+    for (let i = 0; i < searchStorage.length; i++) {
+        const createNewButton = document.createElement('button');
+        createNewButton.textContent = searchStorage[i];
+        leftView.appendChild(createNewButton);
+    }
+}
+
 
 // This function helps get the current weather.
 function recieveCurrWeather(data) {
@@ -73,10 +82,13 @@ function recieveCurrWeather(data) {
 }
 
 searchButton.addEventListener('click', function (event) {
+    saveStorage();
     getLocation();
+    buttons(searchStorage);
 })
 
 getStorage();
+buttons(searchStorage);
 
 // Connecting to the ApiUrl //
 
