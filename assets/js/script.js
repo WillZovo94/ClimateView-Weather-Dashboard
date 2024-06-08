@@ -1,35 +1,49 @@
 const apiKey = 'b7806c84d1d3d136fad167665de26042'
-const cityName = '';
 const cityInput = document.querySelector('#search-input')
 const searchButton = document.querySelector('#search-btn')
-
 const leftView = document.querySelector('#left-view')
 
-let tempStorageName = JSON.parse(localStorage.getItem('history')) || {
-    city: []
+// const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
+
+let tempStorageName = JSON.parse(localStorage.getItem('history')) || []
+
+function getStorage () {
+    let tempStorageName = JSON.parse(localStorage.getItem('history')) || [];
+    return tempStorageName;
 }
 
-// Connecting to the ApiUrl //
-function test () {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
-    fetch(apiUrl)
-    .then(function (response) {
-        if (!response) {
-            console.log("oh no");
-        } else {
-            return response.json();
-        }
+function saveStorage () {
+    localStorage.setItem('storage', JSON.stringify(tempStorageName));
+}
+
+function getLocation(location) {
+    const inputs = cityInput;
+    let searched = '';
+
+    if(!location) {
+        searched = inputs.value;
+    } else {
+        searched = location;
+    }
+
+    const geographicApi = `https://api.openweathermap.org/geo/1.0/direct?q=${searched}&limit=1&appid=${apiKey}`;
+
+    fetch(geographicApi)
+    .then(function(response) {
+        return response.json();
     })
     .then(function (data) {
         console.log(data);
-    }) 
+    })
 }
+
+// Connecting to the ApiUrl //
 
 
 // Making a form submit that goes into localStorage.
-function inputSubmit (event) {
-    event.preventDefault();
-
+// finsihed?
+ 
+/* function inputSubmit (event) {
     const cityData = cityInput.value;
 
     tempStorageName.city.push(cityData);
@@ -43,6 +57,7 @@ function inputSubmit (event) {
     leftView.appendChild(createNewButton);
 }
 
+// finished?
 function recentButtons () {
     const storedData = JSON.parse(localStorage.getItem('tempStorageName'));
 
@@ -59,8 +74,11 @@ function recentButtons () {
     return;
 }
 
-recentButtons(tempStorageName);
+*/
 
-test();
+// recentButtons(tempStorageName);
 
-searchButton.addEventListener('click', inputSubmit)
+searchButton.addEventListener('click', function (event) {
+    //inputSubmit();
+    getLocation();
+})
