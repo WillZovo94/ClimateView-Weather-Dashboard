@@ -131,3 +131,24 @@ body {
     width: 100%;
 }
 
+/* styling for created content */
+
+.currWeatherDiv {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.name-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.city-name {
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
