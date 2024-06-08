@@ -5,15 +5,19 @@ const leftView = document.querySelector('#left-view')
 
 // const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
 
-let tempStorageName = JSON.parse(localStorage.getItem('history')) || []
+// global variable so it can be called
+const searchStorage = JSON.parse(localStorage.getItem('history')) || []
 
+// grabs localStorage
 function getStorage () {
-    let tempStorageName = JSON.parse(localStorage.getItem('history')) || [];
-    return tempStorageName;
+    const searchStorage = JSON.parse(localStorage.getItem('history')) || [];
+    return searchStorage;
 }
 
+
+// saves localStorage
 function saveStorage () {
-    localStorage.setItem('storage', JSON.stringify(tempStorageName));
+    localStorage.setItem('history', JSON.stringify(searchStorage));
 }
 
 function getLocation(location) {
@@ -26,16 +30,53 @@ function getLocation(location) {
         searched = location;
     }
 
+    // helps find the lon / lat of the search
     const geographicApi = `https://api.openweathermap.org/geo/1.0/direct?q=${searched}&limit=1&appid=${apiKey}`;
 
+
+    // fetching that API URL
     fetch(geographicApi)
     .then(function(response) {
+       // using json() on response so we can use the information.
         return response.json();
     })
     .then(function (data) {
         console.log(data);
+        recieveCurrWeather(data)
     })
 }
+
+
+// This function helps get the current weather.
+function recieveCurrWeather(data) {
+    // calling the localStorage
+    getStorage();
+
+    // This API URL helps target the recent data, (data[0]) and selecting the .lat information within that data.
+    const apiWeatherCall = `https://api.openweathermap.org/data/2.5/weather?lat=${data[0].lat}&lon=${data[0].lon}&appid=${apiKey}&units=imperial`
+
+    // standard fetch.
+    fetch(apiWeatherCall)
+    .then(function (response) {
+        // using json() on response so we can use the information.
+        return response.json();
+    })
+    .then(function (weather) {
+        console.log(weather);
+        // adding weather.name into the searchStorage if its not included.
+        if (!searchStorage.includes(weather.name)) {
+            searchStorage.push(weather.name);
+        }
+        // saves data
+        saveStorage(searchStorage);
+    })
+}
+
+searchButton.addEventListener('click', function (event) {
+    getLocation();
+})
+
+getStorage();
 
 // Connecting to the ApiUrl //
 
@@ -77,8 +118,3 @@ function recentButtons () {
 */
 
 // recentButtons(tempStorageName);
-
-searchButton.addEventListener('click', function (event) {
-    //inputSubmit();
-    getLocation();
-})
