@@ -17,15 +17,6 @@ function saveStorage () {
     localStorage.setItem('history', JSON.stringify(history));
 }
 
-// may not need this actually if i can figure out how to delete some data when I press the button to add a city so it doesn't loop through the array.
-function buttonInitial () {
-    getStorage();
-    const lastItem = searchStorage[searchStorage.length - 1];
-    const createNewButton = document.createElement('button');
-    createNewButton.textContent = lastItem;
-    leftView.appendChild(createNewButton);
-}
-
 function buttons () {
     /* making variable for storage of the child elements */
     let buttonStorage = document.querySelector('#previous-buttons');
@@ -123,9 +114,7 @@ function showWeather (weather) {
         weatherTitle.textContent = "5-Day Forecast"
        const weatherDiv = document.createElement('div');
         weatherDiv.setAttribute('class', 'weather-div-container');
-        weatherDiv.setAttribute('style', 'display: flex; flex-direction: row')
-        weatherDiv.setAttribute('class', 'weather-div-container');
-        weatherDiv.setAttribute('style', 'display: flex; flex-direction: row')
+        weatherDiv.setAttribute('style', 'display: flex;')
 
        fiveForecast.appendChild(weatherTitle);
        fiveForecast.appendChild(weatherDiv);

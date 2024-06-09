@@ -99,10 +99,10 @@ body {
 }
 
 #left-view button {
-    width: 85%;
+    width: 25vh;
     height: 40px;
     border: none;
-    margin: 20px 0;
+    margin: 20px 10px;
     background-color: var(--bg-color-3);
     color: var(--bg-color-white);
     font-size: 20px;
@@ -156,4 +156,37 @@ body {
 
 .stats-div {
     margin-left: 15px;
+}
+
+.weather-div-container {
+    flex-direction: row;
+}
+
+
+@media screen and (max-width: 1047px) {
+    .weather-div-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .weather-div-container img {
+        width: 150px;
+    }
+
+    .weather-card {
+        align-items: center;
+    }
+    .currWeatherDiv {
+        align-items: center;
+        text-align: center;
+        border-bottom: 2px solid var(--bg-color-4);
+        padding-bottom: 20px;
+    }
+    .city-name {
+        font-size: 26px;
+    }
+    h1 {
+        font-size: 25px;
+    }
 }
