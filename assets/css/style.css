@@ -117,8 +117,10 @@ body {
     border: none;
 }
 
+/* right content container */
 #right-view {
     display: flex;
+    flex-direction: column;
     width: 60%;
     justify-content: center;
     background-color: var(--bg-color-2);

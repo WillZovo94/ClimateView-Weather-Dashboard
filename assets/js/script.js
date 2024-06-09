@@ -67,6 +67,7 @@ function getLocation(location) {
         /* Calling curr weather data and resetting the input values */
         console.log(data);
         recieveCurrWeather(data);
+        getWeatherInfo(data);
         inputs.value = '';
     })
 }
@@ -107,8 +108,66 @@ function getWeatherInfo (data) {
         return response.json();
     })
     .then (function (data) {
-        // make forecast visible
+        showWeather(data);
     })
+}
+
+function showWeather (weather) {
+
+       /* resetting global variable to zero */
+       fiveForecast.innerHTML = '';
+        fiveForecast.setAttribute('style', 'display: flex; flex-direction: column; text-align: center')
+
+       /* adding elements to store the information */
+       const weatherTitle = document.createElement('h2');
+        weatherTitle.textContent = "5-Day Forecast"
+       const weatherDiv = document.createElement('div');
+        weatherDiv.setAttribute('class', 'weather-div-container');
+        weatherDiv.setAttribute('style', 'display: flex; flex-direction: row')
+        weatherDiv.setAttribute('class', 'weather-div-container');
+        weatherDiv.setAttribute('style', 'display: flex; flex-direction: row')
+
+       fiveForecast.appendChild(weatherTitle);
+       fiveForecast.appendChild(weatherDiv);
+   
+       let emptyVariable = '';
+       for (let i = 0; i < 5; i++) {
+           /* We're multiplying I by 8 because in the data, on the 8th data gathered is a new day because it goes by hourly of 3 */
+           let everyNewDay = i * 8 + emptyVariable;
+
+            /* Creating elements and setting attributes for each */
+            const weatherCard = document.createElement('div');
+              weatherCard.setAttribute('class', 'weather-card')
+              weatherCard.setAttribute('style', 'display: flex; flex-direction: column')
+
+            const dateTitle = document.createElement('h2');
+              dateTitle.textContent = dayjs(weather.list[everyNewDay].dt_txt).format('MM/DD/YYYY');
+
+            const icon = document.createElement('img');
+              icon.setAttribute('src', `https://openweathermap.org/img/wn/${weather.list[everyNewDay].weather[0].icon}@2x.png`)
+              icon.setAttribute('alt', `${weather.list[everyNewDay].weather[0].description} weather icon`)
+
+            const temperature = document.createElement('p');   
+              temperature.textContent = `Temp: ${weather.list[everyNewDay].main.temp}\u00B0F`;
+
+            const wind = document.createElement('p');  
+              wind.textContent = `Wind: ${weather.list[everyNewDay].wind.speed} (MPH) Miles Per Hour`;
+
+            const humidity = document.createElement('p');
+              humidity.textContent = `Humidity: ${weather.list[everyNewDay].main.humidity}%`;
+           
+            /* Appending elements */
+            weatherCard.appendChild(dateTitle);
+            weatherCard.appendChild(icon);
+            weatherCard.appendChild(temperature);
+            weatherCard.appendChild(wind);
+            weatherCard.appendChild(humidity);
+            weatherDiv.appendChild(weatherCard);
+       }
+   
+       /* testing consoles */
+       console.log(weather.list)
+
 }
 
 function showCurrWeather (current) { 
@@ -118,22 +177,28 @@ function showCurrWeather (current) {
   /* Needed or else it will keep creating current content with new searches */
   currWeather.textContent = '';
 
-  /*Creating elements */
+  /*Creating elements and setting attributes for each so we can customize / edit with css */
   const addCurrWeather = document.createElement('div');
+    addCurrWeather.setAttribute('class', 'currWeatherDiv')
+    addCurrWeather.setAttribute('class', 'currWeatherDiv')
+
+
   const name = document.createElement('div');
+    name.setAttribute('class', 'name-div')
+
+
   const currCity = document.createElement('p');
+    currCity.setAttribute('class', 'city-name')
+
   const icon = document.createElement('img');
+    icon.setAttribute('class', 'current-weather-icon')
+
   const currStats = document.createElement('div');
+    currStats.setAttribute('class', 'stats-div')
+
   const tempRead = document.createElement('p');
   const windRead = document.createElement('p');
   const humidityRead = document.createElement('p');
-
-  /* setting attributes with classnames so we can customize / edit with css */
-  addCurrWeather.setAttribute('class', 'currWeatherDiv')
-  name.setAttribute('class', 'name-div')
-  currCity.setAttribute('class', 'city-name')
-  icon.setAttribute('class', 'current-weather-icon')
-  currStats.setAttribute('class', 'stats-div')
 
   /* Grabs the name within the json response */
   currCity.textContent = `${current.name} (${dayjs().format('M/D/YYYY')})`;
@@ -173,3 +238,21 @@ searchButton.addEventListener('click', function (event) {
     event.preventDefault();
     getLocation();
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
