@@ -57,8 +57,6 @@ function getLocation(location) {
     }
     // helps find the lon / lat of the search
     const geographicApi = `https://api.openweathermap.org/geo/1.0/direct?q=${searched}&limit=1&appid=${apiKey}`;
-
-
     // fetching that API URL
     fetch(geographicApi)
     .then(function(response) {
@@ -135,6 +133,7 @@ function showCurrWeather (current) {
   name.setAttribute('class', 'name-div')
   currCity.setAttribute('class', 'city-name')
   icon.setAttribute('class', 'current-weather-icon')
+  currStats.setAttribute('class', 'stats-div')
 
   /* Grabs the name within the json response */
   currCity.textContent = `${current.name} (${dayjs().format('M/D/YYYY')})`;

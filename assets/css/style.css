@@ -122,12 +122,11 @@ body {
     width: 60%;
     justify-content: center;
     background-color: var(--bg-color-2);
-    box-shadow: 0 0 10px inset var(--bg-color-4);
+    box-shadow: 0 0 5px var(--bg-color-4);
 }
 
 #top-section {
     height: 300px;
-    border: 1px solid black;
     width: 100%;
 }
 
@@ -138,6 +137,7 @@ body {
     align-items: start;
     justify-content: center;
     flex-direction: column;
+    background: linear-gradient(var(--bg-color-1), var(--bg-color-2));
 }
 
 .name-div {
@@ -148,7 +148,12 @@ body {
 }
 
 .city-name {
+    font-weight: bold;
     font-size: 30px;
     margin-left: 15px;
     margin-top: 15px;
+}
+
+.stats-div {
+    margin-left: 15px;
 }
