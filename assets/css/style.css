@@ -3,6 +3,7 @@
     --bg-color-2: #60ABFB;
     --bg-color-3: #5170FD;
     --bg-color-4: #4636FC;
+    --bg-color-white : #ffffff;
 }
 
 /* Added two fonts from google fonts */ 
@@ -25,19 +26,33 @@
     padding: 0;
 }
 
+/* similar display properties */
+body, #main-header, #main-content, #left-view, #right-view, .currWeatherDiv, .name-div {
+    display: flex;
+}
+
+/* similar flex-direction: column */
+body, #left-view, #right-view, .currWeatherDiv, .name-div {
+    flex-direction: column;
+}
+
+/* similar align items */
+body, #main-header, #left-view, .name-div {
+    align-items: center;
+}
+
+/* similar justify-content */
+#main-header, #right-view, .currWeatherDiv, .name-div {
+    justify-content: center;
+}
+
 body {
     background-color: var(--bg-color-1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     font-family: "Bree Serif", serif;
 }
 
 #main-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+    color: var(--bg-color-white);
     font-size: 25px;
     background: linear-gradient(var(--bg-color-2), var(--bg-color-3));
     border-bottom: 3px dotted var(--bg-color-2);
@@ -47,7 +62,6 @@ body {
 }
 
 #main-content {
-    display: flex;
     flex-direction: row;
      /* border: 1px solid pink; */
     width: 95%;
@@ -57,11 +71,8 @@ body {
 }
 
 #left-view {
-    display: flex;
     width: 300px;
     text-align: center;
-    align-items: center;
-    flex-direction: column;
     background-color: var(--bg-color-2);
     box-shadow: 0 0 10px inset var(--bg-color-4);
 }
@@ -70,7 +81,7 @@ body {
     margin: 10px 0;
     font-size: 30px;
     font-weight: bold;
-    color: white;
+    color: var(--bg-color-white);
 }
 
 #left-view input {
@@ -93,7 +104,7 @@ body {
     border: none;
     margin: 20px 0;
     background-color: var(--bg-color-3);
-    color: white;
+    color: var(--bg-color-white);
     font-size: 20px;
     font-weight: bolder;
     border-radius: 10px;
@@ -119,10 +130,7 @@ body {
 
 /* right content container */
 #right-view {
-    display: flex;
-    flex-direction: column;
     width: 60%;
-    justify-content: center;
     background-color: var(--bg-color-2);
     box-shadow: 0 0 5px var(--bg-color-4);
 }
@@ -135,18 +143,8 @@ body {
 /* styling for created content */
 
 .currWeatherDiv {
-    display: flex;
     align-items: start;
-    justify-content: center;
-    flex-direction: column;
     background: linear-gradient(var(--bg-color-1), var(--bg-color-2));
-}
-
-.name-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
 .city-name {
