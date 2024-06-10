@@ -1,6 +1,6 @@
 # ClimateView Weather Dashboard
 
-[ClimateView Deployed URL]()
+[ClimateView Deployed URL](https://willzovo94.github.io/ClimateView-Weather-Dashboard/)
 
 
 
@@ -10,17 +10,17 @@
 
 ## Usage
 - You're given a responsive weather dashboard ready to accept the city of your choosing.
-![Main Page]()
+![Main Page](/assets/images/climateView-1.png)
 
 - Once you input your city, you're given the information about the city you input for the value.
-![Search results]()
+![Search results](/assets/images/climateView-2.png)
 
 - You have access to daily weather and a 5 day forecast!
-![The type of information]()
+![The type of information](/assets/images/climateView-3.png)
 
 - All user input data is stored into local storage for the previous searches to be accessed again.
-![Local Storage]()
-![Previous Searches]()
+![Local Storage](/assets/images/climateView-4.png)
+![Previous Searches](/assets/images/climateView-5.png)
 
 
 ## Features
