@@ -24,6 +24,8 @@
 
 
 ## Features
+- OpenWeather API
+- Google Fonts
 - A search form which searches the API and store into local storage.
 - You're given a current weather and 5 day forecast.
 - All information is stored into local Storage to be accessed again.
